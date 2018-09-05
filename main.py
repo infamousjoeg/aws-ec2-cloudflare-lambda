@@ -1,5 +1,16 @@
-import requests
+# main.py
 
-response = requests.get('https://httpbin.org/ip')
+from pkg.func import getEC2InstanceIPv4
+import json
+import CloudFlare
 
-print('Your IP is {0}'.format(response.json()['origin']))
+def handler(event, context):
+    # Get cdemo EC2 Instance Public IPv4 Address
+    cdemoIPv4 = getEC2InstanceIPv4('cdemo')
+
+    # Authenticate to Cloudflare API
+    cf = CloudFlare.CloudFlare()
+
+    # Update A Record in Cloudflare DNS
+
+    # SNS Publish Success or Failure
