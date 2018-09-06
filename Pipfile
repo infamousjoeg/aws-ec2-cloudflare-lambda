@@ -8,7 +8,6 @@ name = "pypi"
 
 [packages]
 requests = "*"
-cloudflare = "*"
 "boto3" = "*"
 
 [requires]
