@@ -1,19 +1,27 @@
 # Testing Cloudflare API Use Case
 
-import CloudFlare
+import requests
+import os
 
-zone_id = 'fe3c97fbe85af911ac4817c8298a04b3'
-dns_id = '905eb317b3f1aa72ec31a821f21909fa'
-instance_ip = '8.8.8.8'
-dns_record = [
-    {'name':'cdemo.cybr.rocks', 'type':'A', 'content':instance_ip}
-]
+cf_email = os.getenv('CLOUDFLARE_EMAIL')
+cf_api_key = os.getenv('CLOUDFLARE_API_KEY')
+cf_zone_id = os.getenv('CLOUDFLARE_ZONE_ID')
+cf_dns_id = os.getenv('CLOUDFLARE_DNS_ID')
+
+url = 'https://api.cloudflare.com/client/v4/zones/{0}/dns_records/{1}'.format(cf_zone_id, cf_dns_id)
+
+payload = "{\n\t\"type\":\"A\",\n\t\"name\":\"cdemo.cybr.rocks\",\n\t\"content\":\"54.243.159.71\"\n}"
+headers = {
+    'X-Auth-Email': cf_email,
+    'X-Auth-Key': cf_api_key,
+    'Content-Type': "application/json"
+    }
 
 def main():
-    cf = CloudFlare.CloudFlare()
-    r = cf.zones.dns_records.post(zone_id, data=dns_record)
-    print ('A record updated successfully for cdemo.cybr.rocks')
-    exit(0)
+    response = requests.request("PUT", url, data=payload, headers=headers)
+    
+    print(response.text)
+
 
 if __name__ == '__main__':
     main()
