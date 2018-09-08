@@ -1,17 +1,18 @@
 # main.py
 
+from __future__ import print_function
 from pkg.func import getEC2InstanceIPv4
 from pkg.func import setCloudflareARecord
 import os
 
-instance_name = os.getenv('EC2_INSTANCE_NAME')
-cf_zone = os.getenv('CLOUDFLARE_ZONE_ID')
-cf_dns = os.getenv('CLOUDFLARE_DNS_ID')
-cf_email = os.getenv('CLOUDFLARE_EMAIL')
-cf_api_key = os.getenv('CLOUDFLARE_API_KEY')
-cf_arecord_name = os.getenv('CLOUDFLARE_A_NAME')
-
 def handler(event, context):
+    instance_name = os.getenv('EC2_INSTANCE_NAME')
+    cf_zone = os.getenv('CLOUDFLARE_ZONE_ID')
+    cf_dns = os.getenv('CLOUDFLARE_DNS_ID')
+    cf_email = os.getenv('CLOUDFLARE_EMAIL')
+    cf_api_key = os.getenv('CLOUDFLARE_API_KEY')
+    cf_arecord_name = os.getenv('CLOUDFLARE_A_NAME')
+
     # Get EC2 Instance Public IPv4 Address
     public_ipv4_address = getEC2InstanceIPv4(instance_name)
     # FOR TESTING:
