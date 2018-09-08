@@ -1,2 +1,2 @@
 from .func import getEC2InstanceIPv4
-from .func import setEnvVarsFromFile
+from .func import setCloudflareARecord

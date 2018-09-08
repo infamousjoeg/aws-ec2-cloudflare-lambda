@@ -2,6 +2,7 @@
 
 import os
 import boto3
+import requests
 from collections import defaultdict
 
 def getEC2InstanceIPv4(instance_name):
@@ -26,15 +27,15 @@ def getEC2InstanceIPv4(instance_name):
     return public_ip_address
 
 
-# Function to read contents of file
-def setEnvVarsFromFile(filename):
-    with open(filename) as f:
-        for line in f:
-            if 'export' not in line:
-                continue
-            if line.startswith('#'):
-                continue
-            # Remove leading `export `
-            # then, split name / value pair
-            key, value = line.replace('export ', '', 1).strip().split('=', 1)
-            os.environ[key] = value
+def setCloudflareARecord(public_ip_address, email, api_key, arecord_name, zone_id, dns_id):
+    url = 'https://api.cloudflare.com/client/v4/zones/{0}/dns_records/{1}'.format(zone_id, dns_id)
+    payload = "{\n\t\"type\":\"A\",\n\t\"name\":\"" + str(arecord_name) + "\",\n\t\"content\":\"" + str(public_ip_address) + "\"\n}"
+    headers = {
+        'X-Auth-Email': email,
+        'X-Auth-Key': api_key,
+        'Content-Type': "application/json"
+    }
+    
+    response = requests.request("PUT", url, data=payload, headers=headers)
+
+    return response.status_code
