@@ -1,6 +1,6 @@
 # AWS EC2 to Cloudflare Lambda Function
 
-This is the initial working release.
+[This is the initial working release.](https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0)
 
 ## How To Use
 
