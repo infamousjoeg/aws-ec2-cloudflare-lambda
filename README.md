@@ -1,4 +1,4 @@
-![AWS Lambda Function](/assets/images/cdemoupdatecloudflare-screenshot.png)
+![AWS Lambda Function](https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png)
 
 # 📢 Use Case Explanation
 
