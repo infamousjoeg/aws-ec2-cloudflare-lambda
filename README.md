@@ -82,6 +82,10 @@ You can use the exported [AWS SAM template](https://docs.aws.amazon.com/lambda/l
 
 ![How to Deploy SAM Template](https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2549426905).png?raw=true)
 
+![CloudFormation Success Screenshot](https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(3292846589).png?raw=true)
+
+![Lambda Function Created Automatically](https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2459700380).png?raw=true)
+
 ## 📦 Release
 
 You may download the latest SAM template release from the [GitHub project page](https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases).
