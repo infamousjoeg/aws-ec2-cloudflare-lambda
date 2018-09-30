@@ -80,7 +80,7 @@ I released my AWS Lambda function under [main.py](https://github.com/infamousjoe
 
 You can use the exported [AWS SAM template](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html) to orchestrate setting up your AWS Lambda function using the same Python script.  Just don't forget to populate values into your Environment Variables before enabling the CloudWatch Event trigger!
 
-![How to Deploy SAM Template]([https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2549426905).png?raw=true)
+![How to Deploy SAM Template](https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2549426905).png?raw=true)
 
 ## 📦 Release
 
