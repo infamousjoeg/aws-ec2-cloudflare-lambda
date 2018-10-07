@@ -1,5 +1,7 @@
 # ⚙️ AWS EC2 to Cloudflare Lambda Function
 
+[![Documentation Status](https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/?badge=latest)
+
 ![AWS Lambda Function](https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png)
 
 # 📢 Use Case Explanation
