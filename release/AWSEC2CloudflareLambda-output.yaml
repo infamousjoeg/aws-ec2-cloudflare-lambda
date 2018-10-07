@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  cdemoUpdateCloudflare:
+    Properties:
+      CodeUri: s3://aws-ec2-cloudflare-lambda/a11ebf0741ab36cd6e45cc704a7afd0b
+      DeadLetterQueue:
+        TargetArn: arn:aws:sns:us-east-1:735280068473:cdemoUpdateCloudflare
+        Type: SNS
+      Description: ''
+      Environment:
+        Variables:
+          CLOUDFLARE_API_KEY: ''
+          CLOUDFLARE_A_NAME: ''
+          CLOUDFLARE_DNS_ID: ''
+          CLOUDFLARE_EMAIL: ''
+          CLOUDFLARE_ZONE_ID: ''
+          EC2_INSTANCE_NAME: ''
+      Events:
+        CloudWatchEvent1:
+          Properties:
+            Pattern:
+              detail:
+                instance-id:
+                - i-0135682dba9806928
+                state:
+                - running
+              detail-type:
+              - EC2 Instance State-change Notification
+              source:
+              - aws.ec2
+          Type: CloudWatchEvent
+      Handler: main.handler
+      MemorySize: 128
+      Role: arn:aws:iam::735280068473:role/service-role/cdemoUpdateCloudflare
+      Runtime: python2.7
+      Timeout: 3
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
