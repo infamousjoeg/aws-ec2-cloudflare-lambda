@@ -4,3 +4,6 @@ venv/
 deployment/
 *.lock
 *.cloudflare.cfg
+docs/_build
+docs/_static
+docs/_templates
