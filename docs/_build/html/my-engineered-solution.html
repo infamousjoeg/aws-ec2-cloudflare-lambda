@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bn, da, de, en, es, fi, fr, he, id, it, ja, ko, nl, ru, sv, uk_UA, vi, zh_CN, zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>🤖 My Engineered Solution &#8212; AWS EC2 to Cloudflare Lambda Function https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="⁉️ How I Did It" href="how-i-did-it.html" />
+    <link rel="prev" title="📢 Use Case Explanation" href="use-case-explanation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="my-engineered-solution">
+<h1>🤖 My Engineered Solution<a class="headerlink" href="#my-engineered-solution" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>First and foremost, it should be open sourced on GitHub.<ul>
+<li>&lt;<a class="reference external" href="https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda">https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda</a>&gt;</li>
+<li>Language should be [Python](<a class="reference external" href="https://www.python.org/">https://www.python.org/</a>). _(My most comfortable language currently.)_</li>
+</ul>
+</li>
+<li>Any custom functions should be put in a [Python module package](<a class="reference external" href="https://docs.python.org/2/tutorial/modules.html">https://docs.python.org/2/tutorial/modules.html</a>) format</li>
+</ul>
+<p>for easy distribution later.</p>
+<ul class="simple">
+<li>The AWS Lambda function's [execution</li>
+</ul>
+<p>role](<a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role</a>) should have
+the following permissions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>[CloudWatch Logs](<a class="reference external" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html</a>)</li>
+<li>[SNS](<a class="reference external" href="https://aws.amazon.com/sns/">https://aws.amazon.com/sns/</a>) (_Publish_)</li>
+<li>EC2 (_EC2ReadOnlyAccess_ IAM Role)</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>The _Instance <a href="#id1"><span class="problematic" id="id2">State_</span></a> change should be a [CloudWatch Event</li>
+</ul>
+<p>trigger](<a class="reference external" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html</a>) in the function.</p>
+<ul class="simple">
+<li>The function should be universally adoptable.  It should make the following variables available to the Python script as</li>
+</ul>
+<p>Environment Variables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>EC2_INSTANCE_NAME</cite></li>
+<li><cite>CLOUDFLARE_EMAIL</cite></li>
+<li><cite>CLOUDFLARE_API_KEY</cite></li>
+<li><cite>CLOUDFLARE_A_NAME</cite></li>
+<li><cite>CLOUDFLARE_DNS_ID</cite></li>
+<li><cite>CLOUDFLARE_ZONE_ID</cite></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>The function should use the [AWS SDK](<a class="reference external" href="https://aws.amazon.com/sdk-for-python/">https://aws.amazon.com/sdk-for-python/</a>) to describe the EC2 instance provided and</li>
+</ul>
+<p>retrieve the public IPv4 address assigned.</p>
+<ul class="simple">
+<li>The function should use [Cloudflare's RESTful API](<a class="reference external" href="https://api.cloudflare.com/">https://api.cloudflare.com/</a>) to update the specified A record in the</li>
+</ul>
+<p>DNS &amp; Zone given using the E-Mail and API Key provided for authentication to do so.  Updating it to the previously
+retrieved public IPv4 address.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AWS EC2 to Cloudflare Lambda Function</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="use-case-explanation.html">📢 Use Case Explanation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">🤖 My Engineered Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-i-did-it.html">⁉️ How I Did It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decomposition.html">Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step-development.html">👟 &quot;Step&quot; Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where-is-it.html">🌎 Where Is It?</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="use-case-explanation.html" title="previous chapter">📢 Use Case Explanation</a></li>
+      <li>Next: <a href="how-i-did-it.html" title="next chapter">⁉️ How I Did It</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Joe Garcia, CISSP.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/my-engineered-solution.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

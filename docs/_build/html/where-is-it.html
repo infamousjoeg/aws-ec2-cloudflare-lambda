@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to AWS EC2 to Cloudflare Lambda Function&#39;s documentation! &#8212; AWS EC2 to Cloudflare Lambda Function https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0 documentation</title>
+    <title>🌎 Where Is It? &#8212; AWS EC2 to Cloudflare Lambda Function https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="📢 Use Case Explanation" href="use-case-explanation.html" />
+    <link rel="prev" title="👟 &#34;Step&#34; Development" href="step-development.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,31 +33,25 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-aws-ec2-to-cloudflare-lambda-function-s-documentation">
-<h1>Welcome to AWS EC2 to Cloudflare Lambda Function's documentation!<a class="headerlink" href="#welcome-to-aws-ec2-to-cloudflare-lambda-function-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="use-case-explanation.html">📢 Use Case Explanation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my-engineered-solution.html">🤖 My Engineered Solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how-i-did-it.html">⁉️ How I Did It</a></li>
-<li class="toctree-l1"><a class="reference internal" href="decomposition.html">Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step-development.html">👟 &quot;Step&quot; Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="where-is-it.html">🌎 Where Is It?</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
-<p># ⚙️ AWS EC2 to Cloudflare Lambda Function</p>
-<p>[![Documentation
-Status](<a class="reference external" href="https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/">https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/</a>?badge=latest)</p>
-<p>![AWS Lambda Function](<a class="reference external" href="https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png">https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png</a>)</p>
+  <div class="section" id="where-is-it">
+<h1>🌎 Where Is It?<a class="headerlink" href="#where-is-it" title="Permalink to this headline">¶</a></h1>
+<p>I released my AWS Lambda function under
+[main.py](<a class="reference external" href="https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/blob/master/main.py">https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/blob/master/main.py</a>).  It invokes  <cite>main.handler</cite> on
+trigger action -- therefore, you'll find in
+[main.py](<a class="reference external" href="https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/blob/master/main.py">https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/blob/master/main.py</a>) a defined handler function that
+contains the actions to take.</p>
+<p>You can use the exported [AWS SAM template](<a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html">https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html</a>) to
+orchestrate setting up your AWS Lambda function using the same Python script.  Just don't forget to populate values into
+your Environment Variables before enabling the CloudWatch Event trigger!</p>
+<p>![How to Deploy SAM
+Template](<a class="reference external" href="https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2549426905).png?raw=true">https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2549426905).png?raw=true</a>)</p>
+<p>![CloudFormation Success
+Screenshot](<a class="reference external" href="https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(3292846589).png?raw=true">https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(3292846589).png?raw=true</a>)</p>
+<p>![Lambda Function Created
+Automatically](<a class="reference external" href="https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2459700380).png?raw=true">https://github.com/infamousjoeg/joeco.de/blob/gh-pages/assets/images/Messages%20Image(2459700380).png?raw=true</a>)</p>
+<p>## 📦 Release</p>
+<p>You may download the latest SAM template release from the [GitHub project
+page](<a class="reference external" href="https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases">https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases</a>).</p>
 </div>
 
 
@@ -67,7 +61,7 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">AWS EC2 to Cloudflare Lambda Function</a></h1>
+<h1 class="logo"><a href="index.html">AWS EC2 to Cloudflare Lambda Function</a></h1>
 
 
 
@@ -78,20 +72,20 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="use-case-explanation.html">📢 Use Case Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my-engineered-solution.html">🤖 My Engineered Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-i-did-it.html">⁉️ How I Did It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="decomposition.html">Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step-development.html">👟 &quot;Step&quot; Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="where-is-it.html">🌎 Where Is It?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">🌎 Where Is It?</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="use-case-explanation.html" title="next chapter">📢 Use Case Explanation</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="step-development.html" title="previous chapter">👟 &quot;Step&quot; Development</a></li>
   </ul></li>
 </ul>
 </div>
@@ -127,7 +121,7 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/index.rst.txt"
+      <a href="_sources/where-is-it.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

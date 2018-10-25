@@ -10,7 +10,12 @@ Welcome to AWS EC2 to Cloudflare Lambda Function's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   use-case-explanation
+   my-engineered-solution
+   how-i-did-it
+   decomposition
+   step-development
+   where-is-it
 
 Indices and tables
 ==================
@@ -18,3 +23,10 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+# ⚙️ AWS EC2 to Cloudflare Lambda Function
+
+[![Documentation 
+Status](https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/?badge=latest)
+
+![AWS Lambda Function](https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png)

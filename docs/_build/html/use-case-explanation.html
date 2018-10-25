@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to AWS EC2 to Cloudflare Lambda Function&#39;s documentation! &#8212; AWS EC2 to Cloudflare Lambda Function https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0 documentation</title>
+    <title>📢 Use Case Explanation &#8212; AWS EC2 to Cloudflare Lambda Function https://github.com/infamousjoeg/aws-ec2-cloudflare-lambda/releases/tag/v1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,8 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="📢 Use Case Explanation" href="use-case-explanation.html" />
+    <link rel="next" title="🤖 My Engineered Solution" href="my-engineered-solution.html" />
+    <link rel="prev" title="Welcome to AWS EC2 to Cloudflare Lambda Function&#39;s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,31 +34,21 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-aws-ec2-to-cloudflare-lambda-function-s-documentation">
-<h1>Welcome to AWS EC2 to Cloudflare Lambda Function's documentation!<a class="headerlink" href="#welcome-to-aws-ec2-to-cloudflare-lambda-function-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="use-case-explanation.html">📢 Use Case Explanation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my-engineered-solution.html">🤖 My Engineered Solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how-i-did-it.html">⁉️ How I Did It</a></li>
-<li class="toctree-l1"><a class="reference internal" href="decomposition.html">Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step-development.html">👟 &quot;Step&quot; Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="where-is-it.html">🌎 Where Is It?</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
-<p># ⚙️ AWS EC2 to Cloudflare Lambda Function</p>
-<p>[![Documentation
-Status](<a class="reference external" href="https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/">https://readthedocs.org/projects/aws-ec2-cloudflare-lambda/badge/?version=latest)](https://aws-ec2-cloudflare-lambda.readthedocs.io/en/latest/</a>?badge=latest)</p>
-<p>![AWS Lambda Function](<a class="reference external" href="https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png">https://joeco.de/assets/images/cdemoupdatecloudflare-screenshot.png</a>)</p>
+  <div class="section" id="use-case-explanation">
+<h1>📢 Use Case Explanation<a class="headerlink" href="#use-case-explanation" title="Permalink to this headline">¶</a></h1>
+<p>I like to use a very specific domain name when I demo [CyberArk Conjur](<a class="reference external" href="https://conjur.org">https://conjur.org</a>) because it's easier for me to
+remember and it also looks better to the customer.  Even so, if it doesn't look good to them -- it still looks better to
+me!</p>
+<p>I noticed quickly that when I'd set the public IPv4 address of my [AWS](<a class="reference external" href="https://aws.amazon.com">https://aws.amazon.com</a>)
+[EC2](<a class="reference external" href="https://aws.amazon.com/ec2/">https://aws.amazon.com/ec2/</a>) instance that I demo from to an A record for <cite>cdemo.cybr.rocks</cite> in
+[Cloudflare](<a class="reference external" href="https://cloudflare.com)'s">https://cloudflare.com)'s</a> DNS, it'd be good for that Instance running.  However, after I stopped the EC2
+instance and, eventually, restarted it again, it boots with a different public IPv4 address.</p>
+<p>Now, I'm sure I could just use an [Elastic
+IP](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html</a>) and assign it and call it a day...
+but that costs money -- even when it's not being used!  I can save money, even over the Elastic IP lease, triggering the
+[AWS Lambda](<a class="reference external" href="https://aws.amazon.com/lambda/">https://aws.amazon.com/lambda/</a>) function only when my _Instance <a href="#id1"><span class="problematic" id="id2">State_</span></a> changes.</p>
+<p>Finally, to the use case: upon a defined Instance's _Instance <a href="#id3"><span class="problematic" id="id4">State_</span></a> changing to &quot;Running&quot;, grab the defined Instance's
+public IPv4 address and update a defined [A record](<a class="reference external" href="https://support.dnsimple.com/articles/a-record/">https://support.dnsimple.com/articles/a-record/</a>) in Cloudflare's DNS.</p>
 </div>
 
 
@@ -67,7 +58,7 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">AWS EC2 to Cloudflare Lambda Function</a></h1>
+<h1 class="logo"><a href="index.html">AWS EC2 to Cloudflare Lambda Function</a></h1>
 
 
 
@@ -78,8 +69,8 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="use-case-explanation.html">📢 Use Case Explanation</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">📢 Use Case Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my-engineered-solution.html">🤖 My Engineered Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-i-did-it.html">⁉️ How I Did It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="decomposition.html">Decomposition</a></li>
@@ -90,8 +81,9 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="use-case-explanation.html" title="next chapter">📢 Use Case Explanation</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to AWS EC2 to Cloudflare Lambda Function's documentation!</a></li>
+      <li>Next: <a href="my-engineered-solution.html" title="next chapter">🤖 My Engineered Solution</a></li>
   </ul></li>
 </ul>
 </div>
@@ -127,7 +119,7 @@ Status](<a class="reference external" href="https://readthedocs.org/projects/aws
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/index.rst.txt"
+      <a href="_sources/use-case-explanation.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
